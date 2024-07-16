@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+
+.wrapper{
+    background: #fff;
+    width: 450px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5)
+    ;
+    border-radius: 6px;
+}
+
+.form{
+    padding: 25px 30px;
+}
+.form header{
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 10px;
+}
+
+.form form {
+    margin: 20px 0;
+}
+
+.form form .error-txt{
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f5c6cb;
+    display: none;
+}
+.form form .field{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #7c7c7c;
+}
+.form form .field i{
+    display: flex;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-10%);
+    color: #ccc;
+    cursor: pointer;
+}
+
+.form form .field i.active::before{
+    color: #333;
+    content: '\f070';
+}
+.form form input{
+    margin: 10px 0;
+    outline: none;
+}
+.form form .input input{
+    height: 40px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    color: #3b3b3b;
+    margin-top: 5px;
+}
+.form form .image input{
+    font-size: 17px;
+}
+.form form .sub input{
+    height: 40px;
+    font-size: 17px;
+    color: #fff;
+    background: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form form .name-details{
+    display: flex;
+    gap: 20px;
+}
+.form .link{
+    text-align: center;
+    color: #3b3b3b;
+}
+.form .link a{
+    color: #333;
+    font-size: 17px;
+}
+.form .link a:hover{
+    text-decoration: underline;
+}
+
+/* Users Area css style */
+
+.users{
+    padding: 25px 30px;
+}
+
+.users header, 
+.users-list a
+{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.wrapper img{
+    border-radius: 50%;
+    object-fit: cover;
+    filter: brightness(110%);
+}
+.users header .content img{
+    width: 50px;
+    height: 50px;
+}
+:is(.users,.users-list) .content{
+    display: flex;
+    align-items: center;
+}
+:is(.users,.users-list) .details{
+    margin-left: 15px;
+    color: #333;
+}
+:is(.users,.users-list) .profilname{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+:is(.users,.users-list) p{
+    font-size: 15px;
+}
+.users header .logout{
+    font-size: 17px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: #eee;
+    background: #333;
+}
+.users .search{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+.users .search .text{
+    font-size: 15px;
+}
+.users .search input{
+    position: relative;
+    height: 42px;
+    outline: none;
+    padding: 0 10px;
+    width: calc(100% - 50px);
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #3b3b3b;
+    border-radius: 5px 0 0 5px;
+    display: block;
+    transition: .2s ease;
+}
+
+
+
+
+
+.users-list {
+   max-height: 350px; 
+   overflow-y: scroll;
+}
+.users-list::-webkit-scrollbar {
+  width: 0px;
+}
+
+.users-list a .content img{
+    height: 40px;
+    width: 40px;
+}
+.users-list a .content p{
+    color: #67676a;
+}
+.users-list a{
+    margin-bottom: 15px;
+    padding: 10px;
+    padding-right: 15px;
+    border-bottom-color: #f1f1f1;
+}
+.users-list a:last-child{
+    margin-bottom: 0;
+    border: none;
+}
+.users-list a .status-dots{
+    font-size: 12px;
+    color: #468669;
+    border: none;
+}
+
+.users-list a .status-dots.offline{
+    color: #ccc;
+}
+
+
+
+.chat-area header{
+    display: flex;
+    align-items: center;
+    padding: 7px 15px;
+}
+
+.chat-area header .back-icon{
+    font-size: 18px;
+    color: #333;
+}
+
+.chat-area header .content{
+    display: flex;
+    align-items: center;
+}
+
+.chat-area header img{
+    width: 45px;
+    height: 45px;
+    margin: 0 15px;
+}
+.chat-area header span{
+    font-size: 17px;
+    font-weight: 600;
+}
+.chat-area header p{
+    font-size: 15px;
+    color: #67676a;
+}
+.chat-box {
+    height: 500px;
+    overflow: auto;
+    padding: 10px 30px 20px 30px;
+    background: #f7f7f7;
+    box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+                inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+.chat-box .chat p{
+    word-wrap: break-word;
+    padding: 8px 16px;
+    box-shadow:  0 0 32px  rgb(0 0 0 / 8%),
+0 16px 16px -16px rgb(0 0 0 / 10%);
+}
+.chat-box .outgoing{
+    display: flex;
+}
+.chat-box .chat .details{
+    word-wrap: break-word;
+}
+.outgoing .details {
+    margin-left: auto;
+    max-width: calc(100% - 130px);
+}
+.chat-box .chat {
+    margin: 10px 0;
+}
+.outgoing .details p{
+    background: #333;
+    color: #fff;
+    margin-left: auto;
+    border-radius: 6px 6px 0 6px;
+}
+.outgoing .details .last-connection{
+    display: flex;
+    justify-content: flex-end;
+}
+.chat-box .chat span{
+    font-style: italic;
+    font-size: 15px;
+    color: #7777;
+    padding: 9px 0;
+}
+.chat-box .incoming{
+    display: flex;
+    
+}
+.incoming .details .last-connection{
+    display: flex;
+}
+
+.incoming img{
+    height: 35px;
+    width: 35px;
+}
+.incoming .details {
+    margin-left: 10px;
+    margin-right: auto;
+    max-width: calc(100% - 130px);
+}
+.incoming .details p{
+    background: #fff;
+    border-radius: 6px 6px 6px 0;
+}
+
+
+.chat-area .typing-area{
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.typing-area input{
+    height: 45px;
+    /* border: none; */
+    outline: none;
+    flex:1;
+    color: #3b3b3b;
+    padding: 6px 10px;
+    border-radius: 6px 0 0 6px;
+    border: 1px solid #eee;
+}
+.typing-area button{
+    width: 50px;
+    background: #333;
+    color: #eee;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    font-size: 19px;
+    cursor: pointer;
+}
+
