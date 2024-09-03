@@ -6,22 +6,22 @@ form.onsubmit = (e)=>{
     e.preventDefault();
 }
 continueBtn.onclick = ()=>{
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST","php/signup.php",true);
-    xhr.onload = ()=>{
-        if (xhr.readyState ===  XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                let data = xhr.response;
-                if (data == 'OK') {
-                    location.href = 'users.php';
-                }else{
-                    errorText.innerText = data;
-                    errorText.style.display = 'block';
-                }
-            }
+    let formData = new FormData(form)
+
+    fetch('php/signup.php', { method: 'POST', body: formData})
+    .then(resp => {
+        if(resp.status === 200){
+            return resp.text();
+        }
+    })
+    .then(data => {
+        if (data == 'OK') {
+            location.href = 'users.php'
+        }else{
+            errorText.innerText = data;
+            errorText.style.display = 'block';
         }
     }
-
-    let formData = new FormData(form)
-    xhr.send(formData)
+    )
+    .catch(err => alert("Le formulaire n'a été soumis, réessayer plus tard! ;("))
 }

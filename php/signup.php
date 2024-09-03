@@ -32,9 +32,9 @@
             
                     $img_ext = end($explode_ext);
             
-                    $accept_ext = ['png', 'jpeg', 'jpg', 'PNG', 'JPEG', 'JPG'];
+                    $accept_ext = ['png', 'jpeg', 'jpg'];
             
-                    if (in_array($img_ext,$accept_ext)) {
+                    if (in_array(strtolower($img_ext),$accept_ext)) {
                         # code...
                         $time = time();
                 
@@ -71,4 +71,3 @@
     }else{
         echo"Tous les champs sont obligatoires";
     }
-?>
