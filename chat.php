@@ -3,6 +3,7 @@
     if (!isset($_SESSION['unique_id'])) {
         # code...
         header('location: login.php');
+        exit();
     }
 ?>
 <?php
@@ -35,15 +36,19 @@
                 
                 
             </div>
-            <form action="#" class="typing-area" autocomplete='off'>
+            <form action="#" enctype="multipart/form-data" class="typing-area" autocomplete='off'>
                  <input type="text" name="outgoing_id" value="<?=$_SESSION['unique_id']; ?>" hidden>
                  <input type="text" name="incoming_id" value="<?=$user_id;?>" hidden>
+                 <div class="img-contain" >
+                    <label for="p_joint"><i class="fa-solid fa-image"></i></label>
+                    <input id="p_joint" type="file" name="p_joint" class="input-file" hidden>
+                 </div>
                  <input type="text" name="message" class="input-field" placeholder="Tapez votre message ici...">
-                 <button><i class="fab fa-telegram-plane"></i></button>
+                 <button><i class="fa fa-paper-plane"></i></button>
             </form>
 
         </section>
     </div>
-    <script src="javascript/chat.js"></script>
+    <script type="module" src="javascript/chat.js"></script>
 </body>
 </html>

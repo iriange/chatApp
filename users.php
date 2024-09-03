@@ -3,6 +3,7 @@
     if (!isset($_SESSION['unique_id'])) {
 
         header('location: login.php');
+        exit();
     }
 ?>
 <?php
@@ -20,6 +21,9 @@
                 if (mysqli_num_rows($sql)>0) {
 
                     $row = mysqli_fetch_assoc($sql);
+                }else{
+                    header('location: login.php');
+                    exit();
                 }
             ?>
 

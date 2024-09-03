@@ -23,7 +23,7 @@
                     
                     if ($sql2) {
                         $_SESSION['unique_id'] = $row['unique_id'];
-                        echo"OK";
+                        echo"OK"; 
                     }
                 }
             }else{
@@ -38,7 +38,8 @@
     }
     }else{
 
-            header('location: ../login.php');
+        header('location: ../login.php');
+        exit();
     }
     
     ?>

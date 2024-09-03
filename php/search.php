@@ -21,6 +21,8 @@
         echo $output;
     }else{
         header('location: ../login.php');
+        exit();
+
     }
 
 ?>

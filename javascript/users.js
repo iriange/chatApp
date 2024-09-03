@@ -11,34 +11,29 @@ searchBar.onkeyup = ()=>{
         searchBar.classList.remove('active')
     }
 
-    let xhr = new XMLHttpRequest()
-    xhr.open("POST","php/search.php",true);
-    xhr.onload = ()=>{
-        if (xhr.readyState ===  XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                let data = xhr.response;
-                usersList.innerHTML = data;
-            }
+    fetch('php/search.php', { method: 'POST',body:'searchTerm='+ searchTerms.trim(), headers: {'Content-type' : 'application/x-www-form-urlencoded'}})
+    .then(async resp => {
+        if(resp.status === 200){
+           return await resp.text()
         }
-    }
-    xhr.setRequestHeader('Content-type' , 'application/x-www-form-urlencoded');
-    xhr.send('searchTerm='+ searchTerms.trim());
+    })
+    .then(data => {
+        usersList.innerHTML = data;
+    })
     
 }
 
 setInterval(()=>{
-    let xhr = new XMLHttpRequest()
-    xhr.open("GET","php/users.php",true);
-    xhr.onload = ()=>{
-        if (xhr.readyState ===  XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                let data = xhr.response;
-                if (!searchBar.classList.contains('active')) {
-                    // searchBar.blur();
-                    usersList.innerHTML = data;
-                }
-            }
+
+    fetch('php/users.php', {method:'GET'})
+    .then(async resp => {
+        if (resp.status === 200) {
+            return await resp.text()
         }
-    }
-    xhr.send()
+    })
+    .then(data => {
+        if (!searchBar.classList.contains('active')) {
+            usersList.innerHTML = data
+        }
+    })
 },500)

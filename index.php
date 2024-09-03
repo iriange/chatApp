@@ -46,5 +46,6 @@
     </div>
     <script src="javascript/show-pwd.js"></script>
     <script src="javascript/signup.js"></script>
+    <script src="javascript/test.js"></script>
 </body>
 </html>
